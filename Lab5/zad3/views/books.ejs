@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+
+<body>
+    <%- include('partials/navigation') %>
+        <h1>Books List</h1>
+        <ul>
+            <% if (books.length> 0) { %>
+                <% books.forEach(book=> { %>
+                    <li>
+                        <%= book.title %> (Published in <%= book.publishingYear %>)
+                    </li>
+                    <ul>
+                        <% books.forEach(book=> { %>
+                            <ul>
+                                <% books.forEach(book => { %>
+                                  <li>
+                                    <%= book.title %> (Published in <%= book.publishingYear %>)
+                                    <form action="/book/delete/<%= book.id %>" method="POST">
+                                      <button type="submit">Delete</button>
+                                    </form>
+                                  </li>
+                                <% }) %>
+                              </ul>
+                            <% }) %>
+                    </ul>
+                    <% }) %>
+                        <% } else { %>
+                            <p>No books</p>
+                            <% } %>
+        </ul>
+</body>
+
+</html>

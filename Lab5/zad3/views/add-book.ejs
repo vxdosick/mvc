@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book</title>
+</head>
+<body>
+    <%- include('partials/navigation') %>
+    <h1>Add new book</h1>
+    <form action="/book/add" method="POST">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="number" name="publishingYear" placeholder="Publishing Year" required>
+        <input type="number" name="authorId" placeholder="Author ID" required>
+        <button type="submit">Add book</button>
+    </form>
+</body>
+</html>
