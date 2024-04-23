@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Set User</h1>
+    <% if (users.length > 0) { %>
+        <form action="/user/set" method="POST">
+            <select name="userId">
+                <% users.forEach(user => { %>
+                    <option value="<%= user.id %>"><%= user.login %></option>
+                <% }); %>
+            </select>
+            <button type="submit">Set user</button>
+        </form>
+    <% } else { %>
+        <p>Sorry, no users have been found.</p>
+    <% } %>
+</body>
+</html>
